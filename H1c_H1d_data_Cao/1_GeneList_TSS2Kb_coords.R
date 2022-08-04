@@ -1,10 +1,10 @@
 #!/usr/bin/env Rscript
 
-#####################################################################
-## Define promoter coordinates (TSS ±2Kb) from RefSeq transcriptome #
-#####################################################################
+####################################################################
+## Define promoter coordinates (TSS±2Kb) from RefSeq transcriptome #
+####################################################################
 
-# This script uses a transcriptome BED list as input and defines the promoter coordinates as TSS ±2Kb
+# This script uses a transcriptome BED list as input and defines the promoter coordinates as TSS±2Kb
 
 # -------
 # Paths |
