@@ -84,42 +84,42 @@ transcriptome_TKOfast <-transcriptome[transcriptome$Gene_name %in% Fast_TKO$Gene
 # Save data |
 # -----------
 write.table(transcriptome_WTslow, 
-            file = paste0(output,"RefSeq_20621_Transcriptome_TSS_4kb_WT_slow.bed"),
+            file = paste0(output,"RefSeq_20621_Transcriptome_TSS_2kb_WT_slow.bed"),
             quote = F, 
             sep="\t", 
             col.names = F, 
             row.names = F)
 
 write.table(transcriptome_WTmed, 
-            file = paste0(output,"RefSeq_20621_Transcriptome_TSS_4kb_WT_med.bed"),
+            file = paste0(output,"RefSeq_20621_Transcriptome_TSS_2kb_WT_med.bed"),
             quote = F, 
             sep="\t", 
             col.names = F, 
             row.names = F)
 
 write.table(transcriptome_WTfast, 
-            file = paste0(output,"RefSeq_20621_Transcriptome_TSS_4kb_WT_fast.bed"),
+            file = paste0(output,"RefSeq_20621_Transcriptome_TSS_2kb_WT_fast.bed"),
             quote = F, 
             sep="\t", 
             col.names = F, 
             row.names = F)
 
 write.table(transcriptome_TKOslow, 
-            file = paste0(output,"RefSeq_20621_Transcriptome_TSS_4kb_TKO_slow.bed"),
+            file = paste0(output,"RefSeq_20621_Transcriptome_TSS_2kb_TKO_slow.bed"),
             quote = F, 
             sep="\t", 
             col.names = F, 
             row.names = F)
 
 write.table(transcriptome_TKOmed, 
-            file = paste0(output,"RefSeq_20621_Transcriptome_TSS_4kb_TKO_med.bed"),
+            file = paste0(output,"RefSeq_20621_Transcriptome_TSS_2kb_TKO_med.bed"),
             quote = F, 
             sep="\t", 
             col.names = F, 
             row.names = F)
 
 write.table(transcriptome_TKOfast, 
-            file = paste0(output,"RefSeq_20621_Transcriptome_TSS_4kb_TKO_fast.bed"),
+            file = paste0(output,"RefSeq_20621_Transcriptome_TSS_2kb_TKO_fast.bed"),
             quote = F, 
             sep="\t", 
             col.names = F, 
