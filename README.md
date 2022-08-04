@@ -12,7 +12,7 @@ contact: agallego@cbm.csic.es, mgomez@cbm.csic.es
 - **ChMeRIPseq**: scripts for processing information about m6A levels in chromatin-enriched RNAs (ChMeRIP) (data from Fernandez-Justel et al. 2021).  
 - **CheRNAseq**: scripts for processing expression levels in chromatin-enriched RNAs (cheRNA) (data from Fernandez-Justel et al. 2021).
 - **Elongation_rate_data_Maslon**: scripts for processing information about transcription elongation rates (data from Maslon et al. 2019) and m6A levels across Ensembl coding-genes.  
-- **H1c_H1d_data**: scripts for processing information about levels of H1c and H1d histone variants (data from Cao et al. 2013) across RefSeq coding-genes.  
+- **H1c_H1d_data_Cao**: scripts for processing information about levels of H1c and H1d histone variants (data from Cao et al. 2013) across RefSeq coding-genes.  
 - **RNAPII_ChIPseq**: scripts for processing RNAPII occupancies and RNAPII pausing indexes (RNAPII-ChIP sequencing) (data from Fernandez-Justel et al. 2021).  
 
 
