@@ -65,8 +65,6 @@ print(count)
 
 # Drop columns 7 and 8
 transcriptome <- transcriptome[-c(7,8)]
-head(transcriptome)
-tail(transcriptome)
 
 # ------------------------------
 # Transcriptome by rate groups |
