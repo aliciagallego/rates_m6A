@@ -50,7 +50,6 @@ write.table(merged_no05, file = paste0(output,"TTseq_RNApol/TTseq_RNApol_500bp.t
 # ------------------
 # Correlation test |
 # ------------------
-
 # RNAPII GB WTmean - TTseq WT Pull > 0.5 values 
 png(file = paste0(output, "TTseq_RNApol/Spearman_RNApolII_TTseq_WT_GB_no05.png"))
 number_no05 <- nrow(merged_no05)
@@ -156,7 +155,6 @@ colnames(TTseq)[18] <- "CI"
 # Gene body (GB)
 png(file = paste0(output3, "RNAPIIGBratio_fast.png"))
 wilcox <- wilcox.test(TTseq[which(TTseq$log_rates>= (mean+2*sd)),]$RNAPIIGB_ratio, TTseq[which(TTseq$log_rates <(mean+2*sd)),]$RNAPIIGB_ratio)
-wilcox
 mean1<-round(mean(TTseq[which(TTseq$log_rates>= (mean+2*sd)),]$RNAPIIGB_ratio),3)
 mean2<-round(mean(TTseq[which(TTseq$log_rates <(mean+2*sd)),]$RNAPIIGB_ratio),3)
 boxplot(TTseq[which(TTseq$log_rates>= (mean+2*sd)),]$RNAPIIGB_ratio, TTseq[which(TTseq$log_rates <(mean+2*sd)),]$RNAPIIGB_ratio,
@@ -165,7 +163,6 @@ boxplot(TTseq[which(TTseq$log_rates>= (mean+2*sd)),]$RNAPIIGB_ratio, TTseq[which
         names = c("TKO fast","Rest"),
         ylab="RNAPII GB TKO/WT ratio",
         main = paste0("RNAPII GB TKO/WT of TKO faster genes"),
-        xlab=paste("W = 542725, p-val = 0.02333"),
         outline = F,
         boxwex = 0.3)
 text(mean1, x=1, y=mean1, col= "black")
@@ -174,7 +171,6 @@ dev.off()
 
 png(file = paste0(output3, "RNAPIIGBratio_slow.png"))
 wilcox <- wilcox.test(TTseq[which(TTseq$log_rates<= (mean-2*sd)),]$RNAPIIGB_ratio, TTseq[which(TTseq$log_rates >(mean-2*sd)),]$RNAPIIGB_ratio)
-wilcox
 mean1<-round(mean(TTseq[which(TTseq$log_rates<= (mean-2*sd)),]$RNAPIIGB_ratio),3)
 mean2<-round(mean(TTseq[which(TTseq$log_rates >(mean-2*sd)),]$RNAPIIGB_ratio),3)
 boxplot(TTseq[which(TTseq$log_rates<= (mean-2*sd)),]$RNAPIIGB_ratio, TTseq[which(TTseq$log_rates >(mean-2*sd)),]$RNAPIIGB_ratio,
@@ -183,7 +179,6 @@ boxplot(TTseq[which(TTseq$log_rates<= (mean-2*sd)),]$RNAPIIGB_ratio, TTseq[which
         names = c("TKO slow","Rest"),
         ylab="RNAPII GB TKO/WT ratio",
         main = paste0("RNAPII GB TKO/WT ratio of TKO slower genes"),
-        xlab=paste("W = 699535, p-val = 0.002383"),
         outline = F,
         boxwex = 0.3)
 text(mean1, x=1, y=mean1, col= "black")
@@ -192,7 +187,6 @@ dev.off()
 
 png(file = paste0(output3, "RNAPIIGBratio_fast_slow.png"))
 wilcox <- wilcox.test(TTseq[which(TTseq$log_rates>= (mean+2*sd) | TTseq$log_rates<= (mean-2*sd)),]$RNAPIIGB_ratio, TTseq[which(TTseq$log_rates <(mean+2*sd)|TTseq$log_rates >(mean-2*sd)),]$RNAPIIGB_ratio)
-wilcox
 mean1<-round(mean(TTseq[which(TTseq$log_rates>= (mean+2*sd) | TTseq$log_rates<= (mean-2*sd)),]$RNAPIIGB_ratio),3)
 mean2<-round(mean(TTseq[which(TTseq$log_rates <(mean+2*sd)|TTseq$log_rates >(mean-2*sd)),]$RNAPIIGB_ratio),3)
 boxplot(TTseq[which(TTseq$log_rates>= (mean+2*sd) | TTseq$log_rates<= (mean-2*sd)),]$RNAPIIGB_ratio, TTseq[which(TTseq$log_rates <(mean+2*sd)|TTseq$log_rates >(mean-2*sd)),]$RNAPIIGB_ratio,
@@ -201,7 +195,6 @@ boxplot(TTseq[which(TTseq$log_rates>= (mean+2*sd) | TTseq$log_rates<= (mean-2*sd
         names = c("TKO fast & slow","Rest"),
         ylab="RNAPII GB TKO/WT ratio",
         main = paste0("RNAPII GB TKO/WT ratio of TKO faster and slower genes"),
-        xlab=paste("W = 1290950, p-val = 0.0003774"),
         outline = F,
         boxwex = 0.3)
 text(mean1, x=1, y=mean1, col= "black")
@@ -212,7 +205,6 @@ dev.off()
 head(TTseq)
 png(file = paste0(output3, "RNAPIIPRratio_fast.png"))
 wilcox <- wilcox.test(TTseq[which(TTseq$log_rates>= (mean+2*sd)),]$RNAPIIPR_ratio, TTseq[which(TTseq$log_rates <(mean+2*sd)),]$RNAPIIPR_ratio)
-wilcox
 mean1<-round(mean(TTseq[which(TTseq$log_rates>= (mean+2*sd)),]$RNAPIIPR_ratio),3)
 mean2<-round(mean(TTseq[which(TTseq$log_rates <(mean+2*sd)),]$RNAPIIPR_ratio),3)
 boxplot(TTseq[which(TTseq$log_rates>= (mean+2*sd)),]$RNAPIIPR_ratio, TTseq[which(TTseq$log_rates <(mean+2*sd)),]$RNAPIIPR_ratio,
@@ -221,7 +213,6 @@ boxplot(TTseq[which(TTseq$log_rates>= (mean+2*sd)),]$RNAPIIPR_ratio, TTseq[which
         names = c("TKO fast","Rest"),
         ylab="RNAPII PR TKO/WT ratio",
         main = paste0("RNAPII PR TKO/WT of TKO faster genes"),
-        xlab=paste("W = 492894, p-val = 0.9175"),
         outline = F,
         boxwex = 0.3)
 text(mean1, x=1, y=mean1, col= "black")
@@ -230,7 +221,6 @@ dev.off()
 
 png(file = paste0(output3, "RNAPIIPRratio_slow.png"))
 wilcox <- wilcox.test(TTseq[which(TTseq$log_rates<= (mean-2*sd)),]$RNAPIIPR_ratio, TTseq[which(TTseq$log_rates >(mean-2*sd)),]$RNAPIIPR_ratio)
-wilcox
 mean1<-round(mean(TTseq[which(TTseq$log_rates<= (mean-2*sd)),]$RNAPIIPR_ratio),3)
 mean2<-round(mean(TTseq[which(TTseq$log_rates >(mean-2*sd)),]$RNAPIIPR_ratio),3)
 boxplot(TTseq[which(TTseq$log_rates<= (mean-2*sd)),]$RNAPIIPR_ratio, TTseq[which(TTseq$log_rates >(mean-2*sd)),]$RNAPIIPR_ratio,
@@ -239,7 +229,6 @@ boxplot(TTseq[which(TTseq$log_rates<= (mean-2*sd)),]$RNAPIIPR_ratio, TTseq[which
         names = c("TKO slow","Rest"),
         ylab="RNAPII PR TKO/WT ratio",
         main = paste0("RNAPII PR TKO/WT ratio of TKO slower genes"),
-        xlab=paste("W = 657021, p-value = 0.2147"),
         outline = F,
         boxwex = 0.3)
 text(mean1, x=1, y=mean1, col= "black")
@@ -248,7 +237,6 @@ dev.off()
 
 png(file = paste0(output3, "RNAPIIPRratio_fast_slow.png"))
 wilcox <- wilcox.test(TTseq[which(TTseq$log_rates>= (mean+2*sd) | TTseq$log_rates<= (mean-2*sd)),]$RNAPIIPR_ratio, TTseq[which(TTseq$log_rates <(mean+2*sd)|TTseq$log_rates >(mean-2*sd)),]$RNAPIIPR_ratio)
-wilcox
 mean1<-round(mean(TTseq[which(TTseq$log_rates>= (mean+2*sd) | TTseq$log_rates<= (mean-2*sd)),]$RNAPIIPR_ratio),3)
 mean2<-round(mean(TTseq[which(TTseq$log_rates <(mean+2*sd)|TTseq$log_rates >(mean-2*sd)),]$RNAPIIPR_ratio),3)
 boxplot(TTseq[which(TTseq$log_rates>= (mean+2*sd) | TTseq$log_rates<= (mean-2*sd)),]$RNAPIIPR_ratio, TTseq[which(TTseq$log_rates <(mean+2*sd)|TTseq$log_rates >(mean-2*sd)),]$RNAPIIPR_ratio,
@@ -257,7 +245,6 @@ boxplot(TTseq[which(TTseq$log_rates>= (mean+2*sd) | TTseq$log_rates<= (mean-2*sd
         names = c("TKO fast & slow","Rest"),
         ylab="RNAPII PR TKO/WT ratio",
         main = paste0("RNAPII PR TKO/WT ratio of TKO faster and slower genes"),
-        xlab=paste("W = 1198605, p-value = 0.4189"),
         outline = F,
         boxwex = 0.3)
 text(mean1, x=1, y=mean1, col= "black")
