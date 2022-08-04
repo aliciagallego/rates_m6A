@@ -1,24 +1,24 @@
 #!/usr/bin/env Rscript
 
-#####################
-## Include TSS-+4Kb #
-#####################
+####################################################################
+## Define promoter coordinates (TSS±2Kb) from RefSeq transcriptome #
+####################################################################
+
+# This script uses a transcriptome BED list as input and defines the promoter coordinates as TSS±2Kb
 
 # -------
 # Paths |
 # -------
-# de novo assembly transcriptome from Josemi (cheRNA data) just containing protein coding genes
-transcriptome_path <- "/media/cc/A/Alicia/Genome_files/Josemi/RefSeq_genes.bed"
-groups_path <- "/media/cc/B/Josemi/TTseq_Feb2022/TTseq_output/Elongation_rate_3/2_Rate_calculation_tertiles/"
+transcriptome_path <- "/path/RefSeq_genes.bed"
+groups_path <- "/path/rate_calculation_tertiles/"
 
 # path for output files
-output <- "/media/cc/B/Alicia/Geeven/Geeven_output/1_RefSeq_transcriptome/"
+output <- "/path/Geeven/Intersect/"
 
 # --------------------------------------------------------
 # Read all files from directories and put them in a list |
 # --------------------------------------------------------
 groups_list = list.files(groups_path, pattern="*txt")
-groups_list
 
 for (i in seq_along(groups_list)) {
   filename <- sub("_without05_", "_", groups_list[i])
@@ -27,14 +27,11 @@ for (i in seq_along(groups_list)) {
   assign(filename, df)
 }
 
-
 # -----------
 # Open data |
 # -----------
 transcriptome <- read.table(transcriptome_path,h=F,sep="\t",stringsAsFactors=FALSE,
                      col.names = c("Chr","Start","End","Gene_name","NA1","Strand"))
-head(transcriptome)
-nrow(transcriptome)
 
 # -------------------------------------
 # Transform start -4Kb and start +4Kb |
@@ -71,25 +68,9 @@ transcriptome <- transcriptome[-c(7,8)]
 head(transcriptome)
 tail(transcriptome)
 
-# -------------
-# Rate groups |
-# -------------
-
-# -----------
-# Save data |
-# -----------
-write.table(transcriptome, 
-            file = paste0(output,"RefSeq_20621_Transcriptome_TSS_4kb.bed"),
-            quote = F, 
-            sep="\t", 
-            col.names = F, 
-            row.names = F)
-
 # ------------------------------
 # Transcriptome by rate groups |
 # ------------------------------
-nrow(transcriptome)
-nrow(Fast_TKO)
 merged_non05 <- merged_noNan[which(merged_noNan$WT_Pull > 0.5 & merged_noNan$TK0_Pull > 0.5),]
 refseq$enst_id <- biomart$Transcript.stable.ID[pmatch(refseq$RefseqID, biomart$RefSeq.mRNA.ID, duplicates.ok = FALSE)]
 overlap <- refseq[refseq$RefseqID %in% biomart[biomart$Transcript.stable.ID %in% maslon$enst_id, ]$RefSeq.mRNA.ID, ]
