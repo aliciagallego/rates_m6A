@@ -2,7 +2,7 @@
 
 # This script computes total reads per histogram window across all genes
 
-for NUM in 1 2 3 4
+for NUM in WT0 WT5 WT15 WT45 TKO0 TKO5 TKO15 TKO45
 
 do
 	FRAC=0.01	
