@@ -101,8 +101,6 @@ nrow(saved_values_TKO)
 # ------------------
 # Correlation test |
 # ------------------
-cor.test(merged$TTseq_WT, merged$RNApol_WT_GB, method=c("pearson", "kendall", "spearman"))
-
 # meRIP WTmean - TTseq WT_pull
 png(file = paste0(output, "TTseq_meRIP/Spearman_TTseq_pull_m6A_WTmean.png"))
 number <- nrow(saved_values_WT)
@@ -121,29 +119,6 @@ ggscatter(saved_values_WT, x = "meRIP_WT", y = "TTseq_WT_pull",
   ggtitle(paste0("Spearman correlation \n m6A levels vs. elongation rates in WT (", number, " genes)"))
 dev.off()
 
-# meRIP WTmean - TTseq WTreplicates
-png(file = paste0(output, "TTseq_meRIP/Spearman_TTseq_m6A_WTreplicates.png"))
-saved_values_WT_labeled <- saved_values_WT[c(1,2,3,4,5,8,12,13)]
-saved_values_WT_labeled <- melt(saved_values_WT_labeled, id=c("Gene_name","Chr","Start","End", "Strand",  "meRIP_WT"  )) 
-head(saved_values_WT_labeled)
-number <- (nrow(saved_values_WT_labeled)/2)
-ggscatter(saved_values_WT_labeled, x = "meRIP_WT", y = "value",
-          color="variable",
-          shape = 10,
-          palette = c("blue","deepskyblue2"),
-          size=0.5,
-          add.params = list(color = "variable", fill = "lightgray"),
-          add = "reg.line", conf.int = TRUE, 
-          cor.coef = F, cor.method = "spearman",
-          ylim=c(-1,10),
-          alpha=.2,
-          xlab = "m6A levels", ylab = "Elongation rate (Kb/min)") +
-  theme_minimal()+
-  stat_cor(method = "spearman", aes(color = variable), label.x = 0.6, label.y = c(9,8))+
-  theme(plot.title = element_text(hjust = 0.5),legend.position="bottom")+
-  ggtitle(paste0("Spearman correlation \n m6A levels vs. elongation rates \n in WT1 and WT2 (", number, " genes)"))
-dev.off()
-
 # meRIP TKOmean - TTseq TKO_pull
 png(file = paste0(output, "TTseq_meRIP/Spearman_TTseq_pull_m6A_TKOmean.png"))
 number <- nrow(saved_values_TKO)
@@ -160,28 +135,6 @@ ggscatter(saved_values_TKO, x = "meRIP_TKO", y = "TTseq_TKO_pull",
   stat_cor(method = "spearman", color= "red2", label.x = 0.58, label.y = 6.5,cex=5)+
   theme(plot.title = element_text(hjust = 0.5))+ 
   ggtitle(paste0("Spearman correlation \n m6A levels vs. elongation rates in TKO (", number, " genes)"))
-dev.off()
-
-# meRIP TKOmean - TTseq TKOreplicates
-png(file = paste0(output, "TTseq_meRIP/Spearman_TTseq_m6A_TKOreplicates.png"))
-saved_values_TKO_labeled <- saved_values_TKO[c(1,2,3,4,5,11,14,15)]
-saved_values_TKO_labeled <- melt(saved_values_TKO_labeled, id=c("Gene_name","Chr","Start","End", "Strand",  "meRIP_TKO"  )) 
-number <- (nrow(saved_values_TKO_labeled)/2)
-ggscatter(saved_values_TKO_labeled, x = "meRIP_TKO", y = "value",
-          color="variable",
-          shape = 10,
-          palette = c("red2","indianred1"),
-          size=0.5,
-          add.params = list(color = "variable", fill = "lightgray"),
-          add = "reg.line", conf.int = TRUE, 
-          cor.coef = F, cor.method = "spearman",
-          ylim=c(-1,10),
-          alpha=.2,
-          xlab = "m6A levels", ylab = "Elongation rate (Kb/min)") +
-  theme_minimal()+
-  stat_cor(method = "spearman", aes(color = variable), label.x = 0.6, label.y = c(9,8))+
-  theme(plot.title = element_text(hjust = 0.5),legend.position="bottom")+
-  ggtitle(paste0("Spearman correlation \n m6A levels vs. elongation rates \n in TKO1 and TKO2 (", number, " genes)"))
 dev.off()
 
 # ----------------------------
@@ -209,7 +162,6 @@ colnames(TTseq)[19] <- "CI"
 
 png(file = paste0(output3, "m6Aratio_fast.png"))
 wilcox <- wilcox.test(TTseq[which(TTseq$log_rates>= (mean+2*sd)),]$m6A_ratio, TTseq[which(TTseq$log_rates <(mean+2*sd)),]$m6A_ratio)
-wilcox
 mean1<-round(mean(TTseq[which(TTseq$log_rates>= (mean+2*sd)),]$m6A_ratio),3)
 mean2<-round(mean(TTseq[which(TTseq$log_rates <(mean+2*sd)),]$m6A_ratio),3)
 boxplot(TTseq[which(TTseq$log_rates>= (mean+2*sd)),]$m6A_ratio, TTseq[which(TTseq$log_rates <(mean+2*sd)),]$m6A_ratio,
@@ -218,7 +170,6 @@ boxplot(TTseq[which(TTseq$log_rates>= (mean+2*sd)),]$m6A_ratio, TTseq[which(TTse
         names = c("TKO fast","Rest"),
         ylab="m6A TKO/WT ratio",
         main = paste0("m6A TKO/WT ratio of TKO faster genes"),
-        xlab=paste("W = 498416, p-val = 0.8699"),
         outline = F,
         boxwex = 0.3)
 text(mean1, x=1, y=mean1, col= "black")
@@ -227,7 +178,6 @@ dev.off()
 
 png(file = paste0(output3, "m6Aratio_slow.png"))
 wilcox <- wilcox.test(TTseq[which(TTseq$log_rates<= (mean-2*sd)),]$m6A_ratio, TTseq[which(TTseq$log_rates >(mean-2*sd)),]$m6A_ratio)
-wilcox
 mean1<-round(mean(TTseq[which(TTseq$log_rates<= (mean-2*sd)),]$m6A_ratio),3)
 mean2<-round(mean(TTseq[which(TTseq$log_rates >(mean-2*sd)),]$m6A_ratio),3)
 boxplot(TTseq[which(TTseq$log_rates<= (mean-2*sd)),]$m6A_ratio, TTseq[which(TTseq$log_rates >(mean-2*sd)),]$m6A_ratio,
@@ -236,7 +186,6 @@ boxplot(TTseq[which(TTseq$log_rates<= (mean-2*sd)),]$m6A_ratio, TTseq[which(TTse
         names = c("TKO slow","Rest"),
         ylab="m6A TKO/WT ratio",
         main = paste0("m6A TKO/WT ratio of TKO slower genes"),
-        xlab=paste("W = 594385, p-val = 0.1609"),
         outline = F,
         boxwex = 0.3)
 text(mean1, x=1, y=mean1, col= "black")
@@ -245,7 +194,6 @@ dev.off()
 
 png(file = paste0(output3, "m6Aratio_fast_slow.png"))
 wilcox <- wilcox.test(TTseq[which(TTseq$log_rates>= (mean+2*sd) | TTseq$log_rates<= (mean-2*sd)),]$m6A_ratio, TTseq[which(TTseq$log_rates <(mean+2*sd)|TTseq$log_rates >(mean-2*sd)),]$m6A_ratio)
-wilcox
 mean1<-round(mean(TTseq[which(TTseq$log_rates>= (mean+2*sd) | TTseq$log_rates<= (mean-2*sd)),]$m6A_ratio),3)
 mean2<-round(mean(TTseq[which(TTseq$log_rates <(mean+2*sd)|TTseq$log_rates >(mean-2*sd)),]$m6A_ratio),3)
 boxplot(TTseq[which(TTseq$log_rates>= (mean+2*sd) | TTseq$log_rates<= (mean-2*sd)),]$m6A_ratio, TTseq[which(TTseq$log_rates <(mean+2*sd)|TTseq$log_rates >(mean-2*sd)),]$m6A_ratio,
@@ -254,7 +202,6 @@ boxplot(TTseq[which(TTseq$log_rates>= (mean+2*sd) | TTseq$log_rates<= (mean-2*sd
         names = c("TKO fast & slow","Rest"),
         ylab="m6A TKO/WT ratio",
         main = paste0("m6A TKO/WT ratio of TKO faster and slower genes"),
-        xlab=paste("W = 1141491, p-val = 0.3765"),
         outline = F,
         boxwex = 0.3)
 text(mean1, x=1, y=mean1, col= "black")
