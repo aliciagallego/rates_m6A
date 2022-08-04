@@ -44,7 +44,6 @@ write.table(merged, file = paste0(output,"TTseq_PausingIndex/TTseq_PausingIndex.
 # ------------------
 # Correlation test |
 # ------------------
-
 # PausingIndex WTmean - TTseq WT pull
 png(file = paste0(output, "TTseq_PausingIndex/Spearman_TTseq_PausingIndex_WT.png"))
 number <- nrow(merged)
