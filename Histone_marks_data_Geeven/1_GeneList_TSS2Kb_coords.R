@@ -33,9 +33,9 @@ for (i in seq_along(groups_list)) {
 transcriptome <- read.table(transcriptome_path,h=F,sep="\t",stringsAsFactors=FALSE,
                      col.names = c("Chr","Start","End","Gene_name","NA1","Strand"))
 
-# -------------------------------------
-# Transform start -4Kb and start +4Kb |
-# -------------------------------------
+# ---------------------
+# Transform start±2Kb |
+# ---------------------
 count <- 0
 for(i in 1:nrow(transcriptome)) {
   if(transcriptome[i,6] == '+') {
