@@ -15,7 +15,7 @@ contact: agallego@cbm.csic.es, mgomez@cbm.csic.es
 - **H1c_H1d_data_Cao**: scripts for processing information about levels of H1c and H1d histone variants (data from Cao et al. 2013) across RefSeq protein-coding genes. 
 - **Histone_marks_data_Geeven**: scripts for processing information about histone marks H3K4me3, H3K9me3, and H3K27me3 (data from Geeven et al. 2015) across RefSeq protein-coding genes. 
 - **METTL3_data_Xu**: scripts for processing information about METTL3 levels (data from Xu et al. 2021) across RefSeq protein-coding genes. 
-- **MNase_seq**: scripts for processing positioned nucleosomes (data from this work) across RefSeq protein-coding genes.    
+- **MNase_seq**: scripts for processing positioned nucleosomes (data from this work) across RefSeq protein-coding genes.  
 - **RNAPII_ChIPseq**: scripts for processing RNAPII occupancies and RNAPII pausing indexes (RNAPII-ChIP sequencing) (data from Fernandez-Justel et al. 2021).  
 
 
