@@ -7,7 +7,7 @@ BAM=/path/RNAPII/Alignment
 
 for FILE in $BAM/*.bam
 do
-	NAME=$(basename $FILE | sed 's/_S.*//') 
+	NAME=$(basename $FILE) 
        	bedtools intersect -c -wa -a $AFILE -b $FILE > /path/RNAPII/Intersect_bedtools/GeneBody/$NAME'_wa_GB_500bp'.bed
 
 done
