@@ -24,5 +24,5 @@ contact: agallego@cbm.csic.es, mgomez@cbm.csic.es
 · Fernández-Justel JM., et al., 2021. Histone H1 regulates non-coding RNA turnover on chromatin in a m6A-dependent manner. https://doi.org/10.1101/2021.10.12.464039  
 · Fuchs G., Voichek Y., et al., 2015. Simultaneous measurement of genome-wide transcription elongation speeds and rates of RNA polymerase II transition into active elongation with 4sUDRB-seq. Nat. Protoc. 10, 605–618. https://doi.org/10.1038/nprot.2015.035  
 . Geeven G., et al. 2015. Local compartment changes and regulatory landscape alterations in histone H1-depleted cells. Genome Biol 16, 289. https://doi.org/10.1186/s13059-015-0857-0  
-· Maslon MM., et al., 2019. A slow transcription rate causes embryonic lethality and perturbs kinetic coupling of neuronal genes. EMBO J. 38, e101244. https://doi.org/10.15252/embj.2018101244
+· Maslon MM., et al., 2019. A slow transcription rate causes embryonic lethality and perturbs kinetic coupling of neuronal genes. EMBO J. 38, e101244. https://doi.org/10.15252/embj.2018101244  
 · Xu W., et al., 2021. METTL3 regulates heterochromatin in mouse embryonic stem cells. Nature 591, 317–321. https://doi.org/10.1038/s41586-021-03210-1  
