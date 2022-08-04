@@ -3,7 +3,7 @@
 # This script removes the 0.1% most expressed genes from the previously generated histograms
 # The % of genes that will be removed ($FRAC) should be adjusted according to the data
 
-for NUM in 1 2 3 4
+for NUM in WT0 WT5 WT15 WT45 TKO0 TKO5 TKO15 TKO45
 
 do
 	INPUT="path/Histograms/"$NUM"_Histogram/"$NUM"_output.txt"
