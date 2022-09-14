@@ -2,6 +2,8 @@
 
 **"Slow RNAPII transcription elongation rate, low levels of RNAPII pausing, and elevated histone H1 content at promoters associate with higher m6A deposition on nascent mRNAs"**  
 
+Genes 2022, 13, 1652. https://doi.org/10.3390/genes13091652  
+
 Alicia Gallego, José Miguel Fernández-Justel, Sara
 Martín-Vírgala, Magdalena M Maslon, María Gómez
 
